@@ -1,0 +1,14 @@
+<%= render(:partial => "project") %>
+<p>
+  <%= link_to 'Edit Project', edit_project_path(@project) %>,
+  <%= link_to 'Show All Projects', projects_path %>,
+  <%= link_to 'Delete Project', @project, :confirm => "#{@confirm_delete_message}", :method => :delete %>
+</p>
+
+<h3>Task Summary</h3>
+<ul>
+  <li><b>Allocated Budget:</b> <%=h number_to_currency(@project.allocated_budget) %></li>
+  <li><%= link_to 'Add New Task', new_project_task_path(@project) %></li>
+</ul>
+<hr/>
+<%= render(:partial => "task", :collection => @project.tasks )%>

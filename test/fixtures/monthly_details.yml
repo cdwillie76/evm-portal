@@ -1,0 +1,55 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+monthly_detail_green:
+  planned_complete_in_dollars: 1000
+  actual_completed_in_dollars: 1000
+  actual_spent_in_dollars: 1000
+  task: task_one
+  
+monthly_detail_yellow:
+  planned_complete_in_dollars: 1000
+  actual_completed_in_dollars: 900
+  actual_spent_in_dollars: 1000
+  task: task_one  
+  
+monthly_detail_red:
+  planned_complete_in_dollars: 1000
+  actual_completed_in_dollars: 700
+  actual_spent_in_dollars: 1000
+  task: task_one  
+  
+monthly_detail_black:
+  planned_complete_in_dollars: 1000
+  actual_completed_in_dollars: 500
+  actual_spent_in_dollars: 1000
+  task: task_one
+  
+monthly_detail_empty:
+  task: task_one  
+  
+complete_project_task_one_monthly_detail_one:
+  date: 2007-12-01
+  planned_complete_in_dollars: 40000
+  actual_completed_in_dollars: 40000
+  actual_spent_in_dollars: 40000
+  task: complete_project_task_one
+  
+complete_project_task_one_monthly_detail_two:
+  date: 2008-01-01
+  planned_complete_in_dollars: 60000
+  actual_completed_in_dollars: 60000
+  actual_spent_in_dollars: 60000
+  task: complete_project_task_one  
+  
+complete_project_task_two_monthly_detail_one:
+  date: 2007-12-01
+  planned_complete_in_dollars: 20000
+  actual_completed_in_dollars: 10000
+  actual_spent_in_dollars: 15000
+  task: complete_project_task_two
+  
+complete_project_task_two_monthly_detail_two:
+  date: 2008-01-01
+  planned_complete_in_dollars: 40000
+  actual_completed_in_dollars: 40000
+  actual_spent_in_dollars: 50000
+  task: complete_project_task_two

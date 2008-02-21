@@ -1,0 +1,8 @@
+<div class="list-indent-30">
+<h4><%= link_to task.name, project_task_path(task.project, task) %> - Status: <%=h task.status("2008-01-01") %> - <%= link_to_function "[Show|Hide] Details", visual_effect(:toggle_blind, "#{task.id}", :duration => 0.5) %></h4>
+<ul id="<%= task.id %>" style="display: none;">
+  <li><b>Task Duration:</b> <%=h task.start_date.to_s(:year_month) %> - <%=h task.end_date.to_s(:year_month) %></li>
+  <li><b>Budget:</b> <%=h number_to_currency(task.budget) %></li>
+</ul>
+</div>
+<hr/>

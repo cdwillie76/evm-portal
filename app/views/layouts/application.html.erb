@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>EVM Portal <%= @page_title || "Current Projects" %></title>
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <!-- <%= stylesheet_link_tag 'scaffold' %> -->
+  <%= stylesheet_link_tag 'default' %>
+  <%= javascript_include_tag :defaults %>
+</head>
+<body>
+  <div id="outer">  
+    <div id="header">
+    	<h1>EVM Portal</h1>
+	  	<h2>Baskerville-Donovan Inc.</h2>
+    </div>
+
+    <div id="content">
+		  <div id="primaryContentContainer">
+	      <!-- start page -->
+		  	<div id="primaryContent">
+		  	  <p style="color: green"><%= flash[:notice] %></p>
+		      <%= yield  %>
+		    </div>
+		  </div>  
+		  
+		  <!-- start sidebar -->
+		  <div id="secondaryContent">
+			  <h3><%= link_to 'Create New Project', new_project_path %></h3>
+		  	<h3>Recent Updates</h3>
+		    <ul>
+			  	<% for recent_project in @recent_projects %>
+            <li><%= link_to recent_project.name, recent_project %></li>
+          <% end %>
+			  </ul>
+		  </div>
+		    
+		  <div class="clear"></div>
+	  </div>
+	  
+	  <div id="footer">
+		  <p>Copyright &copy; 2006 Sitename.com. Designed by <a href="http://www.freecsstemplates.org">Free CSS Templates</a></p>
+	  </div>	  
+  </div>
+</body>
+</html>

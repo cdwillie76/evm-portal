@@ -1,0 +1,8 @@
+<div class="monthly_detail">
+<% fields_for "task[monthly_detail_attributes][]", monthly_detail do |monthly_detail_form| %>
+<p>
+  Actual Spent: <%= monthly_detail_form.text_field :actual_spent %>
+  <%= link_to_function "remove", "$(this).up('.monthly_detail').remove()" %>
+</p>
+<% end %>
+</div>

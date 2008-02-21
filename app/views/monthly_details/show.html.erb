@@ -1,0 +1,23 @@
+<p>
+  <b>Date:</b>
+  <%=h @monthly_detail.date %>
+</p>
+
+<p>
+  <b>Planned complete:</b>
+  <%=h @monthly_detail.planned_complete %>
+</p>
+
+<p>
+  <b>Actual complete:</b>
+  <%=h @monthly_detail.actual_complete %>
+</p>
+
+<p>
+  <b>Actual spent:</b>
+  <%=h @monthly_detail.actual_spent %>
+</p>
+
+
+<%= link_to 'Edit', edit_monthly_detail_path(@monthly_detail) %> |
+<%= link_to 'Back', monthly_details_path %>

@@ -1,0 +1,314 @@
+/*
+	Design by Free CSS Templates
+	http://www.freecsstemplates.org
+	Released for free under a Creative Commons Attribution 2.5 License
+*/
+
+/* Basic */
+
+*
+{
+	margin: 0em;
+	padding: 0em;
+}
+
+h1,h2
+{
+}
+
+a
+{
+	color: #995500;
+}
+
+body
+{
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+	font-size: 11pt;
+	background: #fff;
+	color: #665555;
+}
+
+/* Outer */
+
+#outer
+{
+	margin: 0em auto 0em auto;
+	width: 100%;
+	background-color: #fff;
+}
+
+/* Header */
+
+#header
+{
+	padding: 1.5em 2em 1.5em 4em;
+	/* background: #2E2017 url('images/a1.jpg') top left repeat-x; */
+	background: #2E2017 url('/images/a1.jpg') top left repeat-x;
+}
+
+#header h1
+{
+	font-size: 2.0em;
+}
+
+#header h1, #header h2
+{
+	display: block;
+	width: 778px;
+	margin: 0em auto;
+	color: #ffffff;
+}
+
+#header h1 a
+{
+	color: #fff;
+	text-decoration: none;
+}
+
+#header h2
+{
+	/* color: #bbaa77; */
+	font-size: 0.8em;
+}
+
+/* Menu */
+
+#menu
+{
+	padding: 1em 2em 1em 0em;
+	background: #F1DFC9 url('/images/a2.gif') top left repeat-x;
+	font-size: 0.9em;
+}
+
+#menu ul
+{
+	display: block;
+	width: 778px;
+	margin: 0em auto;
+	list-style: none;
+	padding-left: 2.5em;
+}
+
+#menu li
+{
+	display: inline;
+}
+
+#menu li a
+{
+	color: #38271C;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 0.25em 0.75em 0.25em 0.75em;
+}
+
+#menu li a:hover
+{
+	background: #342117 url('/images/a4.gif') top left repeat-x;
+	color: #fff;
+}
+
+/* Content */
+
+#content
+{
+	width: 778px;
+	margin: 0em auto;
+}
+
+#content p
+{
+	margin-bottom: 0.5em;
+	text-align: justify;
+}
+
+#content h2,h3,h4,h5,h6
+{
+	color: #443333;
+	margin-bottom: 0.5em;
+}
+
+#content ul
+{
+	margin-bottom: 0.5em;
+	padding-left: 1em;
+}
+
+#content blockquote
+{
+	padding-left: 1em;
+	margin-bottom: 1.5em;
+	border-left: solid 7px #EFEECC;
+}
+
+#content blockquote p
+{
+	margin-bottom: 0em;
+}
+
+#content table
+{
+  margin-bottom: 0.5em;
+	border-spacing: 0px;
+  border-collapse: collapse;
+  background: #F9F5D7;
+  border: 0.3em solid #000000;
+}
+
+#content table th
+{
+	text-align: left;
+  font-weight: bold;
+  padding: 0.1em 0.5em;
+  border: 0px;
+  border-bottom: 1px solid #000000;
+}
+
+#content table thead th {
+  text-align: center;
+  font-weight: bold;
+  background-color: #AA0000;
+  color: #FFFFFF;
+}
+
+#content table td
+{
+	text-align: center;
+  border: 0px;
+  border-bottom: 1px solid #000000;
+  padding: 0.1em 0.5em;
+}
+
+#content table tr.rowA
+{
+	background-color: #F6EECC;
+	color: inherit;
+}
+
+#content table tr.rowB
+{
+	background-color: #FFFEEF;
+	color: inherit;
+}
+
+/* Primary Content */
+
+#primaryContentContainer
+{
+	float: left;
+	margin-left: -17em;
+	width: 100%;
+}
+
+#primaryContent
+{
+	margin: 0em 0em 0em 16.5em;
+	padding: 0.5em;
+}
+
+#primaryContent h2, #primaryContent h3, #primaryContent h4
+{
+	border-bottom: solid 1px #efeecc;
+	padding-bottom: 0.25em;
+	margin-bottom: 0.5em;
+}
+
+#primaryContent h2
+{
+	font-size: 1.7em;
+}
+
+#primaryContent h3
+{
+	font-size: 1.2em;
+}
+
+#primaryContent h4
+{
+	font-size: 0.9em;
+}
+
+/* Secondary Content */
+
+#secondaryContent
+{
+	float: right;
+	width: 14em;
+	padding: 1.5em 2em 1.5em 2em;
+	font-size: 0.9em;
+}
+
+#secondaryContent h3 a
+{
+  color: #fff;
+}
+
+#secondaryContent h3
+{
+	background: #2E2017 url('/images/a4.gif') top left repeat-x;
+	color: #fff;
+	padding: 0.5em;
+	padding: 0.5em 0.5em 0.5em 1.0em;
+	position: relative;
+	left: -0.8em;
+	margin-right: -1.6em;
+	font-size: 1.0em;
+}
+
+/* Footer */
+
+#footer
+{
+	padding: 1.5em 2em 1.5em 2em;
+	text-align: center;
+	width: 778px;
+	margin: 0em auto;
+	border-top: solid 1px #efeecc;
+	font-size: 0.9em;
+}
+
+.clear
+{
+	clear: both;
+}
+
+/* tables */
+/* Design 7 */
+/**
+table {
+    border-spacing: 0px;
+    border-collapse: collapse;
+    background: #F9F5D7;
+    border: 0.3em solid #000000;
+}
+table th {
+    text-align: left;
+    font-weight: normal;
+    padding: 0.1em 0.5em;
+    border: 0px;
+    border-bottom: 1px solid #000000;
+}
+table td {
+    text-align: center;
+    border: 0px;
+    border-bottom: 1px solid #000000;
+    padding: 0.1em 0.5em;
+}
+table thead th {
+    text-align: center;
+    font-weight: bold;
+    background-color: #AA0000;
+    color: #FFFFFF;
+}
+table th.Corner {
+    text-align: left;
+}
+table td.Odd {
+    background: #E8E4C0;
+}
+*/
+
+.list-indent-30 {
+  margin-left: 30px; 
+}

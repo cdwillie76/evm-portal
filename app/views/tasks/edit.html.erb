@@ -1,0 +1,29 @@
+<h1>Editing task</h1>
+
+<%= error_messages_for :task %>
+
+<% form_for :task, :url => project_tasks_path, :html => { :method => :put } do |f| %>
+  <p>
+    <b>Name</b><br />
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <b>Start date</b><br />
+    <%= f.date_select :start_date %>
+  </p>
+
+  <p>
+    <b>End date</b><br />
+    <%= f.date_select :end_date %>
+  </p>
+
+  <p>
+    <b>Budget</b><br />
+    <%= f.text_field :budget %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %> | <%= link_to 'Cancel', project_task_path(@task.project, @task) %>
+  </p>
+<% end %>

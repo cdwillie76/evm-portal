@@ -1,0 +1,31 @@
+<h1>New monthly_detail</h1>
+
+<%= error_messages_for :monthly_detail %>
+
+<% form_for(@monthly_detail) do |f| %>
+  <p>
+    <b>Date</b><br />
+    <%= f.date_select :date %>
+  </p>
+
+  <p>
+    <b>Planned complete</b><br />
+    <%= f.text_field :planned_complete %>
+  </p>
+
+  <p>
+    <b>Actual complete</b><br />
+    <%= f.text_field :actual_complete %>
+  </p>
+
+  <p>
+    <b>Actual spent</b><br />
+    <%= f.text_field :actual_spent %>
+  </p>
+
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', monthly_details_path %>

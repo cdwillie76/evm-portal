@@ -1,0 +1,274 @@
+/*
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+*/
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: url(/images/img01.png) repeat-y center;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	color: #9E9D89;
+}
+
+form {
+}
+
+input, textarea {
+	border: 1px solid #DEDED1;
+	font: normal small "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+input.text {
+	padding: .15em;
+	background: #FDFDFB url(/images/img06.gif) repeat-x;
+}
+
+input.button {
+	background: #763320 url(/images/img07.gif) repeat-x;
+	color: #FFFFFF;
+}
+
+h1, h2, h3 {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	color: #D15803;
+}
+
+h1 {
+	letter-spacing: -.05em;
+	font-size: 2.2em;
+}
+
+h2 {
+	margin-top: 1em;
+	letter-spacing: -.05em;
+	font-size: 1.4em;
+}
+
+h3 {
+	margin-top: 1em;
+}
+
+p, ul, ol {
+	margin-top: 1em;
+	line-height: 160%;
+}
+
+ul {
+	list-style: none;
+}
+
+ul li {
+	margin-left: 1em;
+	padding-left: .75em;
+	background: url(/images/img05.gif) no-repeat left center;
+}
+
+ol {
+	margin-left: 1em;
+	list-style-position: inside;
+}
+
+blockquote {
+	margin-left: 1em;
+	padding-left: .75em;
+	border-left: 1px solid #9E9D89;
+}
+
+a {
+	text-decoration: none;
+	color: #D15803;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #827F4F;
+}
+
+/* Header */
+
+#header {
+	width: 860px;
+	height: 100px;
+	margin: 0 auto;
+	padding: 0 40px;
+	background: url(/images/img02.png);
+}
+
+#logo {
+	float: left;
+}
+
+#logo h1, #logo p {
+	margin: 0;
+	padding-top: 25px;
+	float: left;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-style: italic;
+	color: #F3F3E9;
+}
+
+#logo h1 {
+	font-size: 3em;
+}
+
+#logo p {
+	padding: 48px 0 0 5px;
+	letter-spacing: -.055em;
+	font-size: 1.4em;
+	font-weight: bold;
+}
+
+#logo a {
+	color: #F3F3E9;
+}
+
+#search {
+	float: right;
+	width: 15em;
+	padding-top: 50px;
+}
+
+#search fieldset {
+	border: none;
+}
+
+#search #s {
+	width: 13em;
+}
+
+/* Page */
+
+#page {
+	width: 940px;
+	margin: 0 auto;
+}
+
+/* Content */
+
+#content {
+	float: right;
+	width: 580px;
+	padding: 35px 50px 0 0;
+	background: url(/images/img04.png) no-repeat right top;
+}
+
+.post {
+}
+
+.post .meta {
+	margin: 0 0 1.5em 0;
+	padding: 0 0 1px 10px;
+	background: url(/images/img08.png) no-repeat left bottom;
+	line-height: normal;
+}
+
+.post .meta small {
+	font-size: 12px;
+}
+
+/* Sidebar */
+
+#sidebar {
+	float: left;
+	width: 240px;
+	padding: 20px 0 0 30px;
+	background: url(/images/img03.png) no-repeat;
+	font-size: smaller;
+	color: #E3E3D4;
+}
+
+#sidebar ul {
+	padding: 0;
+	list-style: none;
+}
+
+#sidebar li {
+	margin-bottom: 3em;
+	padding: 0;
+	background: none;
+}
+
+#sidebar li ul {
+}
+
+#sidebar li li {
+	margin: 0 0 0 1em;
+	padding-left: .75em;
+	background: url(/images/img09.gif) no-repeat left center;
+}
+
+#sidebar h2 {
+	color: #FFFFFF;
+}
+
+#sidebar a {
+	color: #FFFFFF;
+}
+
+/* Footer */
+
+#footer {
+	width: 860px;
+	margin: 0 auto;
+	padding: 20px 40px;
+	text-align: right;
+}
+
+#footer p {
+	font-size: 10px;
+}
+
+#style h2 {
+border-bottom: 1px solid #666;
+}
+
+#style h2 span {
+position: relative; 
+left: -0.3em; 
+bottom: -0.6em; 
+padding: 1px 0.5em; 
+margin: 0; 
+border-style: solid; 
+border-width: 1px 1px 1px 0.8em;  
+border-color: #666 #666 #666 #008;
+background-color: #ddd;
+}
+
+/* tables */
+/* Design 7 */
+table {
+    border-spacing: 0px;
+    border-collapse: collapse;
+    background: #F9F5D7;
+    border: 0.3em solid #000000;
+}
+table th {
+    text-align: left;
+    font-weight: normal;
+    padding: 0.1em 0.5em;
+    border: 0px;
+    border-bottom: 1px solid #000000;
+}
+table td {
+    text-align: center;
+    border: 0px;
+    border-bottom: 1px solid #000000;
+    padding: 0.1em 0.5em;
+}
+table thead th {
+    text-align: center;
+    font-weight: bold;
+    background-color: #AA0000;
+    color: #FFFFFF;
+}
+table th.Corner {
+    text-align: left;
+}
+table td.Odd {
+    background: #E8E4C0;
+}

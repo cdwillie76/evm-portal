@@ -1,0 +1,21 @@
+<h1>Listing monthly_details</h1>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Planned complete</th>
+    <th>Actual complete</th>
+    <th>Actual spent</th>
+  </tr>
+
+<% for monthly_detail in @monthly_details %>
+  <tr>
+    <td><%=h monthly_detail.date.to_s(:year_month) %></td>
+    <td><%=h monthly_detail.planned_complete %></td>
+    <td><%=h monthly_detail.actual_complete %></td>
+    <td><%=h monthly_detail.actual_spent %></td>
+  </tr>
+<% end %>
+</table>
+
+<br/>

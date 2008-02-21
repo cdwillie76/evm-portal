@@ -1,0 +1,6 @@
+<h2><%= link_to project.name, project %></h2>
+<ul>
+  <li><b>Project Duration:</b> <%=h project.start_date.to_s(:year_month) %> - <%=h project.end_date.to_s(:year_month) %></li>
+  <li><b>Total Budget:</b> <%=h number_to_currency(project.total_budget) %></li>
+  <li><b>Status:</b> <%= h project.status("2008-01-01") %></li>
+</ul>

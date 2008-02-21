@@ -1,0 +1,96 @@
+<p>
+  <b>Name:</b>
+  <%=h @task.name %>
+</p>
+
+<p>
+  <b>Start date:</b>
+  <%=h @task.start_date.to_s(:year_month) %>
+</p>
+
+<p>
+  <b>End date:</b>
+  <%=h @task.end_date.to_s(:year_month) %>
+</p>
+
+<p>
+  <b>Budget:</b>
+  <%=h number_to_currency(@task.budget) %>
+</p>
+<br>
+<% if params.has_key?(:edit_plan) %>
+  <% form_for([ @project, @task ]) do |f| %>
+    <table>
+      <thead>
+      <tr>
+        <th>Date</th>
+        <th>Planned Percent Complete</th>
+      </tr>
+      </thead>
+      <tbody>
+    <% for @monthly_detail in @monthly_details %>
+    <tr>
+      <td><%= @monthly_detail.date%></td>
+      <td><%= text_field("monthly_detail[]", :planned_percent_complete, :size => 5) %>%</td>
+    </tr>
+    <% end %>
+    </tbody>
+    </table>
+    <br/>
+    <%= submit_tag %>
+  <% end %>
+<% elsif params.has_key?(:edit_actuals) %>  
+  <% form_for([ @project, @task ]) do |f| %>
+    <table>
+      <thead>
+      <tr>
+        <th>Date</th>
+        <th>Planned Percent Complete</th>
+        <th>Actual Percent Complete</th>
+        <th>Actual Spent</th> 
+      </tr>
+      </thead>
+      <tbody>
+    <% for @monthly_detail in @monthly_details %>
+    <tr>
+      <td><%= @monthly_detail.date%></td>
+      <td><%= h(@monthly_detail.planned_percent_complete) %>%</td>
+      <td><%= text_field("monthly_detail[]", :actual_percent_complete, :size => 10) %>%</td>
+      <td><%= text_field("monthly_detail[]", :actual_spent_in_dollars, :size => 10) %></td>
+    </tr>
+    <% end %>
+    </tbody>
+    </table>
+    <br/>
+    <%= submit_tag %>
+  <% end %>
+<% else %>
+  <table>
+    <thead>
+    <tr>
+      <th>Date</th>
+      <th>Planned Percent Complete</th>
+      <th>Actual Percent Complete</th>
+      <th>Actual Spent</th>
+      <th>Status</th> 
+    </tr>
+    </thead>
+    <tbody>
+    <% for monthly_detail in @monthly_details %>
+      <tr>
+        <td><%= h(monthly_detail.date.to_s(:year_month))%></td>
+        <td><%= h(monthly_detail.planned_percent_complete)%>%</td>
+        <td><%= h(monthly_detail.actual_percent_complete)%>%</td>
+        <td><%= h(monthly_detail.actual_spent_in_dollars)%></td>
+        <td><%= h(monthly_detail.status)%></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>  
+<br/>
+<%= link_to 'Edit Task', edit_project_task_path(@project, @task) %> |
+<%= link_to 'Edit Task Plan', project_task_path(@project, @task, :edit_plan => "") %> |
+<%= link_to 'Edit Task Actuals', project_task_path(@project, @task, :edit_actuals => "") %> |
+<%= link_to "Extend Task by One Month", extend_end_date_project_task_path(@project, @task), :method => :put %> |
+<%= link_to 'Back to Project', project_path(@project) %>
