@@ -37,6 +37,12 @@ class Project < ActiveRecord::Base
     evm_status(cpi, spi)
   end
   
+  def update_end_date(date)
+    if(date > end_date)
+      update_attribute(:end_date, date)
+    end
+  end
+  
   protected
   
   def validate

@@ -24,6 +24,7 @@ class Task < ActiveRecord::Base
     new_date = md.date.next_month
     MonthlyDetail.create :date => new_date, :task_id => md.task_id,
       :planned_complete_in_dollars => md.planned_complete_in_dollars
+    return new_date
   end
   
   protected
@@ -32,7 +33,9 @@ class Task < ActiveRecord::Base
     date = task.start_date
     
     while date <= task.end_date
-      MonthlyDetail.create :date => date, :task_id => task.id
+      unless task.monthly_details.exists?(:date => date)
+        MonthlyDetail.create :date => date, :task_id => task.id
+      end
       date = date.next_month
     end
   end
