@@ -94,7 +94,6 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       flash[:notice] = "#{@task.name} was successfully extended by a month."
-      #format.html { redirect_to(project_task_path(@project, @task)) }
       format.html { redirect_to(project_task_path(@project, @task, :edit_plan => "")) }
       format.xml  { head :ok }
     end
