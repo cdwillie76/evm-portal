@@ -99,15 +99,36 @@ class TaskTest < ActiveSupport::TestCase
     should_eventually "be completed" do
     end
     
-    should "have the end date extended by one month" do
-      task_one = tasks(:complete_project_task_one)
-      assert_equal task_one.monthly_details.size, 2
+    should "have the task end date extended by one month" do
+      task_two = tasks(:task_two)
+      assert_equal task_two.monthly_details.size, 1
       
-      task_one.extend_end_date
-      assert_equal task_one.monthly_details.size, 3
+      task_two.extend_end_date
+      assert_equal task_two.monthly_details.size, 2
       
-      md = task_one.monthly_details.find(:first, :order => "date DESC")
+      md = task_two.monthly_details.find(:first, :order => "date DESC")
       assert_equal md.date.to_s, "2008-02-01"
+      
+      assert_equal task_two.end_date.to_s, "2008-02-01"
+      
+      assert_equal task_two.project.end_date.to_s, "2008-03-01"
+    end
+    
+    should "have the task end date extended by three months" do
+      task_two = tasks(:task_two)
+      assert_equal task_two.monthly_details.size, 1
+      
+      task_two.extend_end_date
+      task_two.extend_end_date
+      task_two.extend_end_date
+      assert_equal task_two.monthly_details.size, 4
+      
+      md = task_two.monthly_details.find(:first, :order => "date DESC")
+      assert_equal md.date.to_s, "2008-04-01"
+      
+      assert_equal task_two.end_date.to_s, "2008-04-01"
+      
+      assert_equal task_two.project.end_date.to_s, "2008-04-01"
     end
   end
 end

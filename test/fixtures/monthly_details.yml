@@ -26,6 +26,13 @@ monthly_detail_black:
 monthly_detail_empty:
   task: task_one  
   
+project_one_task_two_monthly_detail_one:
+  date: 2008-01-01
+  planned_complete_in_dollars: 40000
+  actual_completed_in_dollars: 40000
+  actual_spent_in_dollars: 40000
+  task: task_two  
+  
 complete_project_task_one_monthly_detail_one:
   date: 2007-12-01
   planned_complete_in_dollars: 40000

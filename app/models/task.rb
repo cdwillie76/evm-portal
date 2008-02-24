@@ -24,7 +24,8 @@ class Task < ActiveRecord::Base
     new_date = md.date.next_month
     MonthlyDetail.create :date => new_date, :task_id => md.task_id,
       :planned_complete_in_dollars => md.planned_complete_in_dollars
-    return new_date
+    update_attribute(:end_date, new_date)
+    project.update_end_date(new_date)
   end
   
   protected

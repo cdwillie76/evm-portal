@@ -90,9 +90,7 @@ class TasksController < ApplicationController
   # PUT /tasks/1/extend_end_date
   def extend_end_date
     @task = @project.tasks.find(params[:id])
-    new_end_date = @task.extend_end_date
-    @task.update_attribute(:end_date, new_end_date)
-    @task.project.update_end_date(new_end_date)
+    @task.extend_end_date
 
     respond_to do |format|
       flash[:notice] = "#{@task.name} was successfully extended by a month."
