@@ -99,6 +99,24 @@ class TasksController < ApplicationController
     end
   end
   
+  # PUT /tasks/1/complete
+  def complete
+    @task = @project.tasks.find(params[:id])
+
+    respond_to do |format|
+      if @task.ready_to_be_completed?
+        @task.complete_task
+        flash[:notice] = "#{@task.name} is complete"
+      else
+        flash[:error] = "#{@task.name} cannot be completed at this time.  Please make the actual percent complete 100% before completing."
+      end
+      format.html { redirect_to(project_task_path(@project, @task)) }
+      format.xml  { head :ok }
+    end
+  end
+
+  protected
+  
   def get_project
     @project = Project.find(params[:project_id])
   end

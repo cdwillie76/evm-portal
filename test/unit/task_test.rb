@@ -96,7 +96,81 @@ class TaskTest < ActiveSupport::TestCase
       assert_equal task_two.status("2008-01-01"), "Yellow - 0.9"
     end
     
-    should_eventually "be completed" do
+    should "not be ready to be completed" do
+      tmp_project = Project.new(:name => "My Project",
+                                :start_date => "01/01/2008",
+                                :end_date => "08/01/2008",
+                                :total_budget => 10000)
+      assert tmp_project.save                      
+      
+      task = Task.new(:name => "My Task",
+                      :start_date => "01/01/2008",
+                      :end_date => "02/01/2008",
+                      :budget => 10000,
+                      :project => tmp_project )
+      assert task.save
+      assert_equal task.monthly_details.size, 2
+      
+      # don't allow a task to be completed when the planned_complete_in_dollars is 0 or nil
+      assert_equal task.completed, false
+      
+      monthly_details = task.monthly_details.find(:all)
+      
+      monthly_details[0].date = "01/01/2008"
+      monthly_details[0].planned_complete_in_dollars = 5000
+      monthly_details[0].actual_completed_in_dollars = 5000
+      monthly_details[0].actual_spent_in_dollars = 5000
+      assert monthly_details[0].save
+      
+      monthly_details[1].date = "02/01/2008"
+      monthly_details[1].planned_complete_in_dollars = 10000
+      monthly_details[1].actual_completed_in_dollars = 9000
+      monthly_details[1].actual_spent_in_dollars = 10000
+      assert monthly_details[1].save
+      
+      assert_equal task.completed, false
+    end
+    
+    should "be completed" do
+      tmp_project = Project.new(:name => "My Project",
+                                :start_date => "01/01/2008",
+                                :end_date => "08/01/2008",
+                                :total_budget => 10000)
+      assert tmp_project.save                      
+      
+      task = Task.new(:name => "My Task",
+                      :start_date => "01/01/2008",
+                      :end_date => "02/01/2008",
+                      :budget => 10000,
+                      :project => tmp_project )
+      assert task.save
+      assert_equal task.monthly_details.size, 2
+      
+      monthly_details = task.monthly_details.find(:all)
+      
+      monthly_details[0].date = "01/01/2008"
+      monthly_details[0].planned_complete_in_dollars = 5000
+      monthly_details[0].actual_completed_in_dollars = 5000
+      monthly_details[0].actual_spent_in_dollars = 5000
+      assert monthly_details[0].save
+      
+      monthly_details[1].date = "02/01/2008"
+      monthly_details[1].planned_complete_in_dollars = 10000
+      monthly_details[1].actual_completed_in_dollars = 10000
+      monthly_details[1].actual_spent_in_dollars = 10000
+      assert monthly_details[1].save
+      
+      assert_equal task.ready_to_be_completed?, true
+      
+      task.complete_task
+      assert_equal task.monthly_details.size, 8
+      assert_equal task.completed, true
+      
+      md = task.monthly_details.find(:first, :order => "date DESC")
+      assert_equal md.date.to_s, "2008-08-01"
+      assert_equal md.planned_complete_in_dollars, 10000
+      assert_equal md.actual_completed_in_dollars, 10000
+      assert_equal md.actual_spent_in_dollars, 10000
     end
     
     should "have the task end date extended by one month" do

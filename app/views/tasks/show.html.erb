@@ -90,6 +90,7 @@
 <% end %>  
 <br/>
 <%= link_to 'Edit Task', edit_project_task_path(@project, @task) %> |
+<%= link_to 'Complete Task', complete_project_task_path(@project, @task), :method => :put %> |
 <%= link_to 'Edit Task Plan', project_task_path(@project, @task, :edit_plan => "") %> |
 <%= link_to 'Edit Task Actuals', project_task_path(@project, @task, :edit_actuals => "") %> |
 <%= link_to "Extend Task by One Month", extend_end_date_project_task_path(@project, @task), :method => :put %> |

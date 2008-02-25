@@ -28,6 +28,37 @@ class Task < ActiveRecord::Base
     project.update_end_date(new_date)
   end
   
+  def complete_task
+    date = self.end_date
+    md = self.monthly_details.find(:first, :order => "date DESC")
+    
+    while date <= self.project.end_date
+      unless monthly_details.exists?(:date => date)
+        new_md = MonthlyDetail.new md.attributes
+        new_md.id = nil
+        new_md.date = date
+        new_md.save
+      end
+      
+      date = date.next_month
+    end
+    
+    update_attribute(:completed, true)
+  end
+  
+  def ready_to_be_completed?
+    return_val = false
+    md = self.monthly_details.find(:first, :order => "date DESC")
+    
+    if md.planned_complete_in_dollars == 0
+      return_val = false
+    else
+      return_val = md.actual_completed_in_dollars == md.planned_complete_in_dollars
+    end
+    
+    return return_val
+  end
+  
   protected
   
   after_save do |task|

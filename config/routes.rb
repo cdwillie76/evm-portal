@@ -1,10 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
   # map.resources :projects, :has_many => :tasks
-  
-  map.resources :tasks, :collection => { :completed => :get }, :member => { :complete => :put }
+  # map.resources :tasks, :collection => { :completed => :get }, :member => { :complete => :put }
   
   map.resources :projects do |project|
-    project.resources :tasks, :member => { :extend_end_date => :put } do |task|
+    project.resources :tasks, :member => { :extend_end_date => :put, :complete => :put } do |task|
       task.resources :monthly_details
     end
   end

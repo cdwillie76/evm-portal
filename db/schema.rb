@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 3) do
+ActiveRecord::Schema.define(:version => 4) do
 
   create_table "monthly_details", :force => true do |t|
     t.date     "date"
@@ -35,9 +35,10 @@ ActiveRecord::Schema.define(:version => 3) do
     t.date     "start_date"
     t.date     "end_date"
     t.integer  "budget"
-    t.integer  "project_id", :null => false
+    t.integer  "project_id",                    :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "completed",  :default => false
   end
 
 end
